@@ -1,0 +1,39 @@
+* {
+  font-family: "Robot", sans-serif;
+}
+
+@font-face {
+  font-family: "Robot";
+  src: url("../font/static/RobotoSlab-Black.ttf") format('ttf'),
+   
+}
+
+.container {
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+form {
+  /*box-shadow: 2px 3px 10px 5px rgb(85, 80, 85);*/
+  text-align: center;
+}
+
+.form-control {
+  text-align: center;
+}
+
+label {
+  font-size: large;
+}
+
+.pRegister {
+  color: red;
+}
+
+.btn-primary {
+  text-align: center;
+}
