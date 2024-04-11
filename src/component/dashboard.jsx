@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../component/dashboard.css";
-
+import { WEATHER_API } from "../constants/api";
 const Dashboard = () => {
   const [cityValue, setCity] = useState(null);
   const [inputUseStateUsername, setInputUseStateFunctionUsername] =
@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=939eca0935431474afb7547116e3424c`
+      WEATHER_API(cityname)
     )
       .then((res) => res.json())
       .then((res) => {
@@ -80,3 +80,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+// for plan data error datainvashibole loading حواست به این ها باشه این چهار تا مرحله رو باید همیشه بررسی کنی
