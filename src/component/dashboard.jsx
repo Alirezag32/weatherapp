@@ -56,6 +56,9 @@ const Dashboard = () => {
         </button>
       </header>
       <main className="text-center">
+        <h1>
+          WhetherApp
+        </h1>
         <section className="location mb-4">
           <div className="city h3">{cityValue?.name}</div>
           <div className="date">{formattedDate}</div>
