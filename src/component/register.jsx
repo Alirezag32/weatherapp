@@ -1,9 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../component/register.css";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
-
+import { useNavigate } from "react-router-dom";
+import { TextField, Button, Typography } from "@mui/material";
 
 const Register = () => {
   let [inputEmail, setInputEmail] = useState("");
@@ -11,60 +8,63 @@ const Register = () => {
   let [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
 
- 
   function formHandler() {
     if (inputEmail.length > 8 && inputPassword.length > 8) {
       localStorage.setItem("username", inputEmail.trim());
       navigate("/");
-        
     } else {
       setErrorMessage("Please enter valid information.");
     }
   }
 
   return (
-    <div className="container">
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+    <div
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        textAlign: "center",
+      }}
+    >
+      <form sx={{ textAlign: "center" }}>
+        <div sx={{ mb: 3 }}>
+          <Typography variant="h6" sx={{ mb: 1 }}>
             Username
-          </label>
-          <input
+          </Typography>
+          <TextField
             value={inputEmail}
-            onChange={(e) => {
-              const value = e.target.value;
-              setInputEmail(value);
-            }}
+            onChange={(e) => setInputEmail(e.target.value)}
             type="email"
-            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" className="form-text">
+          <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
             Never share your username with others.
-          </div>
+          </Typography>
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
-          </label>
-          <input
+        <div sx={{ mb: 3 }}>
+          <Typography variant="h6">Password</Typography>
+          <TextField
             value={inputPassword}
-            onChange={(e) => {
-              const value = e.target.value;
-              setInputPassword(value);
-            }}
+            onChange={(e) => setInputPassword(e.target.value)}
             type="password"
-            className="form-control"
             id="exampleInputPassword1"
           />
         </div>
 
-        <button onClick={formHandler} type="button" className="btn btn-primary">
+        <Button
+          onClick={formHandler}
+          variant="contained"
+          color="primary"
+          sx={{ mb: 1 }}
+        >
           Register
-        </button>
+        </Button>
 
-        <p className="pRegister">{errorMessage}</p>
+        <Typography variant="body1" sx={{ color: "red" }}>
+          {errorMessage}
+        </Typography>
       </form>
     </div>
   );
